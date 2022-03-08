@@ -21,19 +21,19 @@ const app = express();
 
 
 // Middleware 
-const check = (req, res, next) => {
-    const status = true;
-    if (status) {
-        console.log("Hello");
-        next();
-    } else {
-        console.log("Don't go");
-    }
-}
-app.use(check)
-app.use((req, res) => {
-    console.log('Bước 2');
-})
+// const check = (req, res, next) => {
+//     const status = true;
+//     if (status) {
+//         console.log("Hello");
+//         next();
+//     } else {
+//         console.log("Don't go");
+//     }
+// }
+// app.use(check)
+// app.use((req, res) => {
+//     console.log('Bước 2');
+// })
 
 app.get('/api/products', check, (req, res) => {
     const products = [

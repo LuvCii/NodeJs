@@ -34,17 +34,6 @@ app.use(check)
 app.use((req, res) => {
     console.log('Bước 2');
 })
-
-app.get('/api/products', check, (req, res) => {
-    const products = [
-        { id: 1, name: "Name A" },
-        { id: 1, name: "Name B" }
-    ];
-    res.json(products);
-})
-
-
-
 const PORT = 3001;
 app.listen(PORT, () => {
     console.log("Server dang chay port", PORT);
