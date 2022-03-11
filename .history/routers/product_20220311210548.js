@@ -1,12 +1,11 @@
 import { Router } from "express";
-// import { route } from "express/lib/application";
+import { route } from "express/lib/application";
 import { checkAuth } from "../middlewares/checkAuth";
 const router = Router();
 
 const products = [
     { id: 1, name: "Name A" },
-    { id: 2, name: "Name B" },
-    { id: 3, name: "Name C" },
+    { id: 2, name: "Name B" }
 ];
 router.get('/products', checkAuth, (req, res) => {
     res.json(products);

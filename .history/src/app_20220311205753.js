@@ -11,7 +11,7 @@ app.use(cors());
 app.use(morgan('tiny'));
 app.use(express.json())
 
-app.use("/api", productRouter);
+app.use(productRouter);
 // const server = http.createServer((req, res) => {
 //     console.log('url', req.url);
 //     if (req.url === '/') {

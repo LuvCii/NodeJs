@@ -1,5 +1,5 @@
 import { Router } from "express";
-// import { route } from "express/lib/application";
+import { route } from "express/lib/application";
 import { checkAuth } from "../middlewares/checkAuth";
 const router = Router();
 
