@@ -51,8 +51,6 @@ export const create = async(req, res) => {
         })
     }
 }
-
-// API xóa sản phẩm
 export const remove = async(req, res) => {
     try {
         const products = await Product.findOneAndDelete({ _id: req.params.id }).exec()
@@ -63,8 +61,6 @@ export const remove = async(req, res) => {
         })
     }
 }
-
-// API update sản phẩm
 export const update = async(req, res) => {
     const condition = { _id: req.params.id }
     const update = req.body

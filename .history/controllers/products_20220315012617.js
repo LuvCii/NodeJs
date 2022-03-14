@@ -27,16 +27,11 @@ export const list = async(req, res) => {
     }
 }
 
-// API list 1 sản phẩm
-export const read = async(req, res) => {
-    try {
-        const product = await Product.findOne({ _id: req.params.id }).exec();
-        res.json(product);
-    } catch (error) {
-        res.status(400).json({
-            error: "Không có sản phẩm"
-        })
-    }
+// export const list = (req, res) => {
+//     res.json(products);
+// }
+export const read = (req, res) => {
+    res.json(products.find(item => item.id === +req.params.id));
 }
 
 
@@ -51,8 +46,6 @@ export const create = async(req, res) => {
         })
     }
 }
-
-// API xóa sản phẩm
 export const remove = async(req, res) => {
     try {
         const products = await Product.findOneAndDelete({ _id: req.params.id }).exec()
@@ -63,8 +56,6 @@ export const remove = async(req, res) => {
         })
     }
 }
-
-// API update sản phẩm
 export const update = async(req, res) => {
     const condition = { _id: req.params.id }
     const update = req.body
