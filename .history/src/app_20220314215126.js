@@ -2,7 +2,7 @@ import express from 'express';
 import morgan from 'morgan'; // log các thông tin từ client gửi lên
 import cors from 'cors'; // cấp quyền truy cập api
 import productRouter from '../routers/product';
-import postRouter from '../routers/post';
+import postRouter from '../routers/postt';
 import mongoose from 'mongoose';
 
 const app = express();
