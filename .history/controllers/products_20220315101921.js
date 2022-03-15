@@ -1,13 +1,18 @@
-import Product from "../models/products";
-// import mongoose from "mongoose";
+import mongoose from "mongoose";
+// fake data
+// const products = [
+//     { id: 1, name: "Product A" }, // item
+//     { id: 2, name: "Product B" } // item
+// ];
+
 
 
 // 1 Khởi tạo model
-// const Product = mongoose.model('Product', {
-//     name: String,
-//     price: Number,
-//     desc: String
-// });
+const Product = mongoose.model('Product', {
+    name: String,
+    price: Number,
+    desc: String
+});
 
 
 // API list sản phẩm

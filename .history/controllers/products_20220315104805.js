@@ -1,5 +1,11 @@
-import Product from "../models/products";
+import Products from "../models/products";
 // import mongoose from "mongoose";
+// fake data
+// const products = [
+//     { id: 1, name: "Product A" }, // item
+//     { id: 2, name: "Product B" } // item
+// ];
+
 
 
 // 1 Khởi tạo model
