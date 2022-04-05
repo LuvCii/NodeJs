@@ -8,10 +8,10 @@ const router = Router();
 
 // resful API
 router.get('/products', checkAuth, list);
-router.get('/product/:id', checkAuth, read);
+router.get('/products/:id', checkAuth, read);
 router.post('/product/:userId', requireSignin, isAuth, isAdmin, create);
 router.delete('/product/:userId/:id', requireSignin, isAuth, isAdmin, remove);
-router.patch("/product/:id", checkAuth, update)
+router.patch("/product/:userId/:id", requireSignin, isAuth, isAdmin, update)
 
 router.param("userId", userById);
 
