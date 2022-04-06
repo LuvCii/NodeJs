@@ -69,3 +69,19 @@ export const update = async(req, res) => {
         })
     }
 }
+
+
+// API tìm kiếm
+export const search = async(req, res) => {
+    const query = req.query.q;
+    try {
+        console.log(query)
+        const mongoResult = await Product.find({ $text: { $search: query } }, { score: { $meta: "textScore" } }).sort({ score: { $meta: "textScore" } })
+            // console.log(mongoResult);
+            // const results = mongoResult.map(r => r.toObject());
+            // res.send(results);
+        res.json(mongoResult)
+    } catch (error) {
+        res.status(400).json(error)
+    }
+}
