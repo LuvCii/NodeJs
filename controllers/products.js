@@ -29,11 +29,11 @@ export const read = async(req, res) => {
     }
 }
 
-
 // API thêm sản phẩm
 export const create = async(req, res) => {
     try {
         const product = await new Product(req.body).save();
+        console.log(product);
         res.json(product)
     } catch (error) {
         res.status(400).json({
@@ -70,7 +70,6 @@ export const update = async(req, res) => {
     }
 }
 
-
 // API tìm kiếm
 export const search = async(req, res) => {
     const query = req.query.q;
@@ -83,5 +82,21 @@ export const search = async(req, res) => {
         res.json(mongoResult)
     } catch (error) {
         res.status(400).json(error)
+    }
+}
+
+// API Pagination
+export const paginateResults = async(req, res, next) => {
+    const PageSize = 4;
+    var page = req.query.page;
+    if (page) {
+        page = parseInt(page);
+        const skip = (page - 1) * PageSize;
+        try {
+            const paginate = await Product.find({}).skip(skip).limit(PageSize)
+            res.json(paginate)
+        } catch (error) {
+            res.status(400).json(error)
+        }
     }
 }

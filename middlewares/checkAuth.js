@@ -39,3 +39,12 @@ export const isAdmin = (req, res, next) => {
     }
     next();
 }
+
+
+
+
+// - Đầu tiên Kiểm tra xem email người dùng đã tồn tại trong hệ thống hay chưa?
+// - Nếu chưa tồn tại thì reject: User not found.
+// - Nếu tồn tại user thì sẽ lấy password mà user truyền lên, mã hóa và so sánh với mật khẩu của user lưu trong Database
+// - Nếu password sai thì reject: Password is incorrect.
+// - Nếu password đúng thì chúng ta bắt đầu thực hiện tạo mã JWT và gửi về cho người dùng.
