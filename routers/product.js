@@ -9,7 +9,6 @@ const router = Router();
 // resful API
 router.get('/products', checkAuth, list);
 router.get('/products/:id', checkAuth, read);
-// router.post('/product', create);
 router.post('/product/:userId', requireSignin, isAuth, isAdmin, create);
 router.delete('/product/:userId/:id', requireSignin, isAuth, isAdmin, remove);
 router.patch("/product/:userId/:id", requireSignin, isAuth, isAdmin, update);
