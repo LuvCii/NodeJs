@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import productRouter from "../routers/product";
 import authRouter from "../routers/auth";
 import userRouter from "../routers/user";
+import cateRouter from "../routers/category";
 
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(express.json())
 app.use("/api", productRouter);
 app.use("/api", authRouter);
 app.use("/api", userRouter);
+app.use("/api", cateRouter);
 
 
 // connect database

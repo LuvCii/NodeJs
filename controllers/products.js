@@ -16,9 +16,24 @@ export const list = async(req, res) => {
     }
 }
 
+// API lọc theo giá
+export const filterPrice = async(req, res) => {
+    const filter = { price: req.params.price };
+    // filter = parseInt(filter)
+    try {
+        const products = await Product.find(filter);
+        res.json(products);
+    } catch (error) {
+        res.status(400).json({
+            error: "không có"
+        })
+    }
+
+}
+
 // API list 1 sản phẩm
 export const read = async(req, res) => {
-    const filter = { _id: req.params.id }
+    const filter = { _id: req.params.id };
     try {
         const product = await Product.findOne(filter);
         res.json(product);
