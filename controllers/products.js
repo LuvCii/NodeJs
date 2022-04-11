@@ -115,3 +115,20 @@ export const paginateResults = async(req, res, next) => {
         }
     }
 }
+
+
+export const sort = async(req, res) => {
+    const object = {
+        min: parseInt(req.query.min),
+        max: parseInt(req.query.max)
+
+    }
+
+    try {
+        const filter = await Product.find({ price: { $gte: object.min, $lte: object.max } })
+
+        res.json(filter)
+    } catch (error) {
+
+    }
+}
